@@ -7,12 +7,14 @@ import Router from 'next/router'
 import '../styles/index.less'
 import configureStore from '../store/configureStore'
 import { projectAdded } from '../store/projects'
+import { userAdded } from '../store/users'
 
 Router.events.on('routeChangeStart', () => NProgress.start())
 Router.events.on('routeChangeComplete', () => NProgress.done())
 Router.events.on('routeChangeError', () => NProgress.done())
 
 const store = configureStore();
+export const StoreCotext = React.createContext(store)
 
 class MyApp extends App {
   static async getInitialProps({ Component, ctx }) {
@@ -21,12 +23,17 @@ class MyApp extends App {
   }
 
   render() {
-    store.dispatch(projectAdded({ name: 'project 1'}))
+
+    store.dispatch(projectAdded({ name: 'project 1' }))
+    store.dispatch(projectAdded({ name: 'project 2' }))
+    store.dispatch(userAdded({ name: 'Lin ' }))
 
     const { Component, pageProps } = this.props
     return (
       <WrappedLayout>
-        <Component {...pageProps} />
+        <StoreCotext.Provider value={store}>
+          <Component {...pageProps} store={store} />
+        </StoreCotext.Provider>
       </WrappedLayout>
     )
   }

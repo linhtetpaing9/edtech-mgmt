@@ -1,9 +1,11 @@
 import { Checkbox, Col, Menu, Row, Tabs } from 'antd';
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import TwoSplitLayout from '../components/layouts/TwoSplitLayout';
 import Components from '../components/components';
 import Link from 'next/link';
 import dynamic from 'next/dynamic'
+import { projectAdded } from '../store/projects';
+import { StoreCotext } from './_app';
 const CodeEditor = dynamic(import('../components/project-components/CodeEditor'), { ssr: false })
 
 const { TabPane } = Tabs;
@@ -11,7 +13,7 @@ const { TabPane } = Tabs;
 const DisplayComponents = ({ entries }) => {
   const [showCode, setShowCode] = useState(false);
   const [showCss, setShowCss] = useState(false);
-
+  
   return (
     <>
       <Checkbox onChange={() => setShowCode(!showCode)}>Show Code</Checkbox>
@@ -41,7 +43,11 @@ const DisplayComponents = ({ entries }) => {
   )
 }
 
+
 const Home = ({ query }) => {
+  const store = useContext(StoreCotext);
+  store.dispatch(projectAdded({ name: 'project 3' }))
+
   const data = [
     {
       name: 'Sliders',
