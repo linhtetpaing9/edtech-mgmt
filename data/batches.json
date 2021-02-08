@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "code": "101-001",
+    "name": "Jody Circles",
+    "created_at": "2019-12-16 14:20:38",
+    "updated_at": "2019-12-16 14:20:38"
+  },
+  {
+    "id": 2,
+    "code": "101-002",
+    "name": "Erling Islands",
+    "created_at": "2019-12-16 14:20:38",
+    "updated_at": "2019-12-16 14:20:38"
+  },
+  {
+    "id": 3,
+    "code": "101-003",
+    "name": "Brekke Lane",
+    "created_at": "2019-12-16 14:20:38",
+    "updated_at": "2019-12-16 14:20:38"
+  },
+  {
+    "id": 4,
+    "code": "101-004",
+    "name": "Judy Haven",
+    "created_at": "2019-12-16 14:20:38",
+    "updated_at": "2019-12-16 14:20:38"
+  },
+  {
+    "id": 5,
+    "code": "101-005",
+    "name": "Monique Summit",
+    "created_at": "2019-12-16 14:20:38",
+    "updated_at": "2019-12-16 14:20:38"
+  }
+]
